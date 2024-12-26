@@ -7,17 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2 
+
       - name: Welcome message
         run: echo "My sample pipeline creation" >> mysample.txt
+        
       - name: List files
         run: ls
       - name: Reading file
         run: cat mysample.txt
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.5.0
         with:
-          name: sampletxt
+          name: sample-txt
           path: mysample.txt 
+
   second_jobs:
     runs-on: ubuntu-22.04
     needs: first_job
