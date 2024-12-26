@@ -8,17 +8,24 @@ jobs:
     steps:
     - name: " Checking out the repo"
       uses: actions/checkout@v4.2.2 
+
     - name: Installing Cowsay Program
       run: sudo apt-get install cowsay -y
+
     - name: Executing Cowsay
-      run: cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt
-        
+      run: | 
+        cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt
+        cowsay -f teddy " I am teddy bear ....." >> teddy.txt
     - name: Test File exist
-      run: grep -i "dragon" dragon.txt
+      run: |
+       grep -i "dragon" dragon.txt
+       grep -i "teddy" teddy.txt
         
     - name: Read File
-      run: cat dragon.txt
-        
+      run: |
+       cat dragon.txt
+       cat teddy.txt
+         
     - name: Checkout repo files
       run: ls -ltra
         
