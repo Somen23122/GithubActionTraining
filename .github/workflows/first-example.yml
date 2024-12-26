@@ -10,7 +10,7 @@ jobs:
 
       - name: Welcome message
         run: echo "My sample pipeline creation" >> mysample.txt
-        
+
       - name: List files
         run: ls
       - name: Reading file
@@ -29,13 +29,13 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4.1.8
         with:
-          name: sampletxt
+          name: sample-txt
 
       - name: Listing the file in the repo
         run: ls -ltr
 
       - name: REading the downloaded artifact
-        uses: cat mysample.txt          
+        run: cat mysample.txt          
 
             
  
