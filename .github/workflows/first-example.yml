@@ -13,12 +13,28 @@ jobs:
         run: ls
       - name: Reading file
         run: cat mysample.txt
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          name: sampletxt
+          path: mysample.txt 
   second_jobs:
     runs-on: ubuntu-22.04
     needs: first_job
     steps:
       - name: Checking out the git repo
         uses: actions/checkout@v4.2.2 
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: sampletxt
+
       - name: Listing the file in the repo
         run: ls -ltr
+        
+      - name: REading the downloaded artifact
+        uses: cat mysample.txt          
+
+            
  
