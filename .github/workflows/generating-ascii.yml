@@ -1,0 +1,24 @@
+name: Generating Ascii
+
+on: push
+
+jobs:
+  ascii-jobs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: " Checking out the repo"
+      uses: actions/checkout@v4.2.2 
+    - name: Installing Cowsay Program
+      run: sudo apt-get install cowsay -y
+    - name: Executing Cowsay
+      run: cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt
+        
+    - name: Test File exist
+      run: grep -i "dragon" dragon.txt
+        
+    - name: Read File
+      run: cat dragon.txt
+        
+    - name: Checkout repo files
+      run: ls -ltra
+        
