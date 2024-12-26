@@ -14,17 +14,15 @@ jobs:
 
     - name: Executing Cowsay
       run: | 
-        cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt &&
-        cowsay -f teddy " I am teddy bear ....." >> teddy.txt
+        cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt 
+
     - name: Test File exist
       run: |
        grep -i "dragon" dragon.txt
-       grep -i "teddy" teddy.txt
         
     - name: Read File
       run: |
        cat dragon.txt
-       cat teddy.txt
 
     - name: Checkout repo files
       run: ls -ltra
