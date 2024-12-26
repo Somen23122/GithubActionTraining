@@ -14,7 +14,7 @@ jobs:
 
     - name: Executing Cowsay
       run: | 
-        cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt
+        cowsay -f dragon " Run for cover , I am a DRAGON....RWARRRR" >> dragon.txt &&
         cowsay -f teddy " I am teddy bear ....." >> teddy.txt
     - name: Test File exist
       run: |
@@ -25,7 +25,7 @@ jobs:
       run: |
        cat dragon.txt
        cat teddy.txt
-         
+
     - name: Checkout repo files
       run: ls -ltra
         
