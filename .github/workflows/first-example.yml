@@ -15,6 +15,7 @@ jobs:
         run: cat mysample.txt
   second_jobs:
     runs-on: ubuntu-22.04
+    needs: first_job
     steps:
       - name: Checking out the git repo
         uses: actions/checkout@v4.2.2 
