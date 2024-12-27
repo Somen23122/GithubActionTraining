@@ -38,7 +38,8 @@ jobs:
         run: ls -ltr
 
       - name: REading the downloaded artifact
-        run: cat mysample.txt          
-
+        run: |
+          cat mysample.txt          
+          sleep 200s
             
  
