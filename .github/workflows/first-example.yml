@@ -25,6 +25,9 @@ jobs:
   second_jobs:
     runs-on: ubuntu-22.04
     needs: first_job
+    concurrency:
+      group: Concurency-added
+      cancel-in-progress: true
     steps:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4.1.8
