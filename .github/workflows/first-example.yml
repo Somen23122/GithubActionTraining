@@ -1,6 +1,8 @@
 name: My sample Pipeline
 
-on: workflow_dispatch
+on:
+  push: 
+  workflow_dispatch:   
 
 jobs:
   first_job:
@@ -23,6 +25,7 @@ jobs:
           path: mysample.txt 
 
   second_jobs:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-22.04
     needs: first_job
     concurrency:
